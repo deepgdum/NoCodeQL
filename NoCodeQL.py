@@ -25,9 +25,3 @@ def search(req: QueryRequest):
     result = index.query(vector=req.vector, top_k=5, include_metadata=True)
     return {"matches": result.get("matches", [])}
 
-nest_asyncio.apply()  # Allow running event loops inside Jupyter
-
-def run_app():
-    uvicorn.run(app, host="0.0.0.0", port=8002)
-
-Thread(target=run_app).start()
