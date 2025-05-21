@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: nocodeql-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn NoCodeQL:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: PINECONE_API_KEY
+        value: pcsk_685TYA_7fL6c5qXeMqsatFLhLRBqmg1K5neZ1vKoNf5S1grpQM5UfGQjgFCLRfu4cZXGYq
+      - key: PINECONE_INDEX
+        value: nocodeql
